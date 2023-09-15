@@ -91,7 +91,7 @@ public class ATMachine {
         gotoMainMenu();
     }
 
-    private static void createAccount() {
+    private static void createAccoun() {
         String firstName = input("Enter your first name");
         String lastName = input("Enter your last name");
 

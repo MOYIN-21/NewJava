@@ -10,8 +10,8 @@ public class Bank {
     private List<Account2> accounts = new ArrayList<>();
 
     private String bankName;
+    private Account2 account2;
 
-    public Account2 account2;
 
     public Bank() {
         this.bankName = bankName;
@@ -35,9 +35,11 @@ public class Bank {
         for (Account2 account : accounts) {
             if (account.getAccountNumber().equals(accountNumber)) {
                 return account;
+            }else {
+                throw new IllegalArgumentException("ACCOUNT NOT FOUND");
             }
         }
-        throw new IllegalArgumentException("INVALID ACCOUNT NUMBER");
+        return null;
     }
 
     public void deposit(BigDecimal amount, String accountNumber) {
@@ -53,7 +55,7 @@ public class Bank {
     }
 
     public void withdraw(BigDecimal amount, String pin, String accountNumber){
-//        if(!Objects.equals(accountNumber, accountNumber)){ throw new IllegalArgumentException("ACCOUNT NUMBER NOT FOUND");}
+        findAccount(accountNumber);
         account2.checkBalance(pin);
         account2.withdraw(amount);
     }

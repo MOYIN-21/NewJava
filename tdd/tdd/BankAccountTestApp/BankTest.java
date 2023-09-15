@@ -25,16 +25,16 @@ public class BankTest {
 
     @Test
     public void bankCanRegisterCustomersTest(){
-        bank.register("mo","yin","0");
-        bank.register("moy","in","0");
-        assertEquals(3, bank.getNoOfCustomer());
+        bank.register("moy","in","0000");
+        assertEquals(2, bank.getNoOfCustomer());
     }
 
     @Test
     public void testThatBankCanDepositIntoAGivenAccount(){
-        bank.register("mo","yin","0");
+        bank.register("ola","ola","0000");
         bank.deposit(BigDecimal.valueOf(2000.00),"1");
-        assertEquals(BigDecimal.valueOf(2000.00), bank.checkBalance("1", "0000"));
+        BigDecimal newBalance = bank.checkBalance("1", "0000");
+        assertEquals(BigDecimal.valueOf(2000.00),newBalance);
     }
     @Test
     public void testThatBankCanNotDepositNegativeAmountIntoAGivenAccount() {

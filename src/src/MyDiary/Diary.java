@@ -18,12 +18,12 @@ public class Diary {
         this.password = password;
         this.diary = new ArrayList<>();
     }
-
-
-
-    public boolean isLocked() {
-
-        return isLocked = true;
+    public void unLocked(String password) {
+        if (!Objects.equals(password, this.password)) {
+            throw new NullPointerException("wrong pin");}
+        else {
+            isLocked = false;
+        }
     }
     public List<Entry> list(){
         return diary;
@@ -34,8 +34,10 @@ public class Diary {
     }
 
     public void lockDiary() {
-
-        this.isLocked = true;
+        isLocked = true;
+    }
+    public boolean isLocked(){
+        return isLocked;
     }
 
     public void unLockDiary(String userPassword) {
@@ -71,7 +73,6 @@ public class Diary {
         if (!Objects.equals(password, userPassword)){
             throw new IllegalArgumentException("INCORRECT PASSWORD");
         }
-
     }
 
     public int getSize() {

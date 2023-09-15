@@ -13,10 +13,10 @@ public class DiaryTest {
 
     @BeforeEach
     public void startWith(){
-        diary = new Diary("Ola","0000");
+        diary = new Diary("Ola","0");
+        diary.lockDiary();
+        assertTrue(diary.isLocked());
     }
-
-
 
     @Test
     public void diaryCanBeCreatedTest() {
@@ -25,8 +25,10 @@ public class DiaryTest {
 
     @Test
     public void unLockedDiaryTest(){
-        diary.unLockDiary("0000");
-        assertTrue(true);
+        diary.lockDiary();
+        assertTrue(diary.isLocked());
+        diary.unLocked("0");
+        assertFalse(diary.isLocked());
     }
 
     @Test
@@ -36,18 +38,17 @@ public class DiaryTest {
     }
 
     @Test
-    public void diaryIsLockedTest(){
-        assertTrue(diary.isLocked());
-    }
-
-    @Test
     public void diaryCanCreateEntryTestTest(){
+        diary.unLocked("0");
+        assertFalse(diary.isLocked());
         diary.createEntry(1,"Dream","life");
         assertEquals(new Entry(1,"Dream","life").getEntry(),diary.findEntry(1).getEntry());
     }
 
     @Test
     public void deleteEntryTest(){
+        diary.unLocked("0");
+        assertFalse(diary.isLocked());
         diary.createEntry(1,"dear precious","Submit assignment for me");
         diary.createEntry(2,"dear diary","School");
 
@@ -61,6 +62,8 @@ public class DiaryTest {
 
     @Test
     public void updateEntryTest(){
+        diary.unLocked("0");
+        assertFalse(diary.isLocked());
         diary.createEntry(1, "love","school");
         diary.createEntry(2, "love","school");
 
