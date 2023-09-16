@@ -1,12 +1,13 @@
 package src.MyDiary;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Entry {
     private int id;
     private String title;
     private String body;
-    private Date LocalDateTime;
+    private LocalDateTime date;
 
     public Entry(int id, String title, String body) {
         this.id = id;

@@ -1,15 +1,4 @@
-package src.MyDiary;
-
-import javax.swing.*;
-
-public class MainDiaryApplication {
-private static Diary myDiary = new Diary("userName", "0000");
-
-    public static void main(String[] args) {
-        goToMainMenu();
-    }
-
-    private static void goToMainMenu(){
+private static void goToMainMenu(){
         String mainMenu = input(  """
                 +++++++++++++++++++++++++++++++++++
                 Welcome to Diary
@@ -31,7 +20,7 @@ private static Diary myDiary = new Diary("userName", "0000");
             case '5' -> LockDiary();
             case '6' -> unlockDiary();
             case '7' -> Exit();
-
+            default -> exit(1);
         }
     }
 
@@ -45,10 +34,11 @@ private static Diary myDiary = new Diary("userName", "0000");
 
     private static void Exit() {
         display("Thanks");
-        System.exit(1);
+        exit(1);
     }
 
     private static void UpdateEntry() {
+
 
     }
 
