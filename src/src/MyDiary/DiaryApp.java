@@ -14,10 +14,10 @@ public class DiaryApp {
     private static final Diaries myDiary = new Diaries();
 
     public static void main(String[] args) {
-        goToMainMenu();
+        diarymenu();
     }
 
-    private static void goToMainMenu() {
+    private static void diarymenu() {
         String mainMenu = """
                 +++++++++++++++++++++++++++++++++++
                 Welcome to Diary
@@ -50,7 +50,7 @@ public class DiaryApp {
             JOptionPane.showMessageDialog(null, "Your password did not match your user name, try again");
             loginDiary();
         }
-        mainDiaryMenu();
+        entryMenu();
     }
 
     private static void createDiary() {
@@ -67,11 +67,11 @@ public class DiaryApp {
         myDiary.addUser(userName, password);
         String message = "Hello" + " " + userName + " your Diary has been created successfully.";
         JOptionPane.showMessageDialog(null, message);
-        mainDiaryMenu();
+        entryMenu();
     }
 
 
-    private static void mainDiaryMenu() {
+    private static void entryMenu() {
         String mainMenu = """
                 +++++++++++++++++++++++++++++++++++
                 1 ->Create Entry
@@ -88,7 +88,7 @@ public class DiaryApp {
             case '2' -> findEntry();
             case '3' -> deleteEntry();
             case '4' -> updateEntry();
-            case '5' -> lockDiary();
+            case '5' -> lockEntry();
             case '6' -> exit();
             default -> logout();
         }
@@ -98,7 +98,7 @@ public class DiaryApp {
         System.exit(0);
     }
 
-    private static void lockDiary() {
+    private static void lockEntry() {
         String userPassword = input("Enter password to lock");
         if (!userPassword.equals(password)){
             throw new InputMismatchException("Incorrect password");
@@ -106,7 +106,7 @@ public class DiaryApp {
         JOptionPane.showMessageDialog(null, "Diary is locked");
         String response = input("Enter Yes to back to diary / No ");
         if (response.equalsIgnoreCase("Yes")) {
-            mainDiaryMenu();
+            entryMenu();
         }
         else {
             System.exit(0);
@@ -130,7 +130,7 @@ public class DiaryApp {
             titleEdited = JOptionPane.showInputDialog("Edit");
         }
         if (editTitle.equalsIgnoreCase("No")){
-            mainDiaryMenu();
+            entryMenu();
         }
         String editBody = input("Enter yes to edit body");
         if (editBody.equalsIgnoreCase("Yes")){
@@ -138,7 +138,7 @@ public class DiaryApp {
             bodyEdited = JOptionPane.showInputDialog("Edit");
         }
         if (editBody.equalsIgnoreCase("No")){
-            mainDiaryMenu();
+            entryMenu();
         }
         JOptionPane.showMessageDialog(null, "Entry successfully updated");
 
@@ -146,7 +146,7 @@ public class DiaryApp {
         myDiary.findByUserName(userName).findEntry(confirmUpdate).getEntry();
         JOptionPane.showMessageDialog(null, titleEdited);
         JOptionPane.showMessageDialog(null, bodyEdited);
-        mainDiaryMenu();
+        entryMenu();
     }
 
     private static void deleteEntry() {
@@ -157,7 +157,7 @@ public class DiaryApp {
         myDiary.findByUserName(id).deleteEntry(Integer.parseInt(id));
         String message = "Entry deleted successfully";
         JOptionPane.showMessageDialog(null, message);
-        mainDiaryMenu();
+        entryMenu();
     }
 
 
@@ -173,7 +173,7 @@ public class DiaryApp {
         myDiary.findByUserName(userName).findEntry(Integer.parseInt(id)).getEntry();
 
 
-        mainDiaryMenu();
+        entryMenu();
     }
 
     private static void createEntry() {
@@ -189,7 +189,7 @@ public class DiaryApp {
         JOptionPane.showMessageDialog(null, message);
         JOptionPane.showMessageDialog(null, title);
         JOptionPane.showMessageDialog(null, body);
-        mainDiaryMenu();
+        entryMenu();
     }
 
     private static String input(String Prompt){
