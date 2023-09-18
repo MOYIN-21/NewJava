@@ -46,12 +46,6 @@ public class Diary {
         return isLocked;
     }
 
-    public void unLockDiary(String userPassword) {
-        lockDiary();
-      validate_Password(userPassword);
-        this.isLocked = false;
-    }
-
     public Entry findEntry(int id) {
         for (Entry entry : diary) {
             if (entry.getId() == id) {
