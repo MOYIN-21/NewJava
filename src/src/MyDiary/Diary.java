@@ -10,7 +10,6 @@ public class Diary {
     private final String password;
     private boolean isLocked;
     private final List<Entry> diary;
-    private int Entry;
 
 
     public Diary(String userName, String password) {

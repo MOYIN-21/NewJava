@@ -11,6 +11,7 @@ public class DiaryApp {
     private static String bodyEdited;
     private static String body;
     private static String title;
+
     private static final Diaries myDiary = new Diaries();
 
     public static void main(String[] args) {
@@ -205,9 +206,7 @@ public class DiaryApp {
         }
         myDiary.findByUserName(userName).createEntry(Integer.parseInt(id), title, body);
         String message = "Entry created successfully.";
-        JOptionPane.showMessageDialog(null, message);
-        JOptionPane.showMessageDialog(null, title);
-        JOptionPane.showMessageDialog(null, body);
+        JOptionPane.showMessageDialog(null, "Entry successfully created with title as: " + "\"" + title + "\"" + "and body as: " + "\"" + body + "\"");
         entryMenu();
     }
 

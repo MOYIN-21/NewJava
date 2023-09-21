@@ -7,7 +7,7 @@ public class Entry {
     private int id;
     private String title;
     private String body;
-    private LocalDateTime date;
+    private final LocalDateTime date = LocalDateTime.now();
 
     public Entry(int id, String title, String body) {
         this.id = id;
