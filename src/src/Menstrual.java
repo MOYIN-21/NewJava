@@ -1,38 +1,41 @@
 package src;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.InputMismatchException;
+
 public class Menstrual {
-    private String password;
-    private boolean isLock;
+    public Date findSafePeriodStart(Date checkDate) {
+        long checkStart = checkDate.getTime() - (10 * 24 * 60 * 60 * 1000L);
+        return new Date(checkStart);
+    }
+
+    public Date calculatePeriod(Date checkDate) {
+        long checkPeriod = checkDate.getTime() + (14 * 24 * 60 * 60 * 1000L);
+        return new Date(checkPeriod);
+    }
 
 
-    public Menstrual(String password){
-        this.password = password;
+    public Date findSafePeriodEnd(Date checkDate) {
+        long checkEnd = checkDate.getTime() + (10 * 24 * 60 * 60 * 1000L);
+        return new Date(checkEnd);
     }
-    public void lockApp() {
-        this.isLock = true;
-    }
-    public boolean isLock() {
-        if(isLock);
-        if (!password.equals(password)){
-            throw new IllegalArgumentException("Password not correct, try again");
+
+    public Date checkOvulation(Date cycleLength) {
+        if (cycleLength.getTime() < 0) {
+            throw new InputMismatchException("Date does not align");
+        } else {
+            long checkOvulation = cycleLength.getTime() + (11 * 24 * 60 * 60 * 1000L);
+            return new Date(checkOvulation);
         }
-        return isLock;
     }
 
-    public void unLockApp(String userPassword) {
-        if(isLock);
-        if (!password.equals(userPassword)){
-            throw new IllegalArgumentException("Password not correct, try again");
-        }
-        this.isLock = false;
-
-    }
-
-    public void lastPeriodDate() {
-    }
-
-    public void cycleLength() {
-
+    public Date findStartFlow(Date checkFlow) {
+        long checkEnd = checkFlow.getTime() + (28 * 24 * 60 * 60 * 1000L);
+        return new Date(checkEnd);
     }
 }
+
+
 

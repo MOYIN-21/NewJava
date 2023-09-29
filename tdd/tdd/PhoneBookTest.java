@@ -3,9 +3,8 @@ package tdd;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import src.PhoneBookContact.Directory;
-import src.PhoneBookContact.PhoneBook;
-import src.PhoneBookContact.PhoneBookList;
+import src.phoneBookContact.Directory;
+import src.phoneBookContact.PhoneBook;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -38,13 +37,12 @@ public class PhoneBookTest {
         phoneBook.locked();
         Assertions.assertTrue(phoneBook.isLocked());
         phoneBook.unLocked("password");
-        Assertions.assertFalse(phoneBook.isLocked());
+        assertFalse(phoneBook.isLocked());
     }
-//    @Test
-//    public void phoneBookCanBeCreatedTest(){
-//        phoneBook.createPhoneBook("userName", "password");
-//        assertEquals(new PhoneBookList(),phoneBook.);
-////    }
+    @Test
+    public void phoneBookCanBeCreatedTest(){
+        assertNotNull(phoneBook);
+    }
 
     @Test
     public void directoryCanBeCreated(){
@@ -59,10 +57,14 @@ public class PhoneBookTest {
         phoneBook.locked();
         Assertions.assertTrue(phoneBook.isLocked());
         phoneBook.createDirectory(1, "name","address", "telephone","email");
+        phoneBook.createDirectory(2,"names","addresses", "telephones", "emails");
+
         assertEquals(new Directory(1, "name", "address", "telephone","email").getDirectory(), phoneBook.findDirectory(1).getDirectory());
+        assertEquals(new Directory(2,"names","addresses","telephones","emails").getDirectory(),phoneBook.findDirectory(2).getDirectory());
+
 
         phoneBook.deleteDirectory(1);
-        assertEquals(0, phoneBook.getSize());
+        assertEquals(1, phoneBook.getSize());
 
     }
 }
