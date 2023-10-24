@@ -1,4 +1,4 @@
-package playingGround.hackerRack;
+package HackerRankTask;
 
 import java.text.NumberFormat;
 import java.util.InputMismatchException;

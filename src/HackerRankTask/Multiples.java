@@ -1,4 +1,4 @@
-package playingGround.hackerRack;
+package HackerRankTask;
 
 import java.io.IOException;
 import java.util.Scanner;
