@@ -112,6 +112,5 @@ public class EcommerceStore {
         for (int row = 0; row<product.size(); row++) {
         }
             System.out.println("\t\tITEM[1],QTY[1],PRICE[1], TOTAL(NGN)");
-
     }
 }
