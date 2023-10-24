@@ -1,4 +1,4 @@
-package dietel.c2.MenstrualApp;
+package ServerClasses.MenstrualApp;
 
 import javax.swing.*;
 import java.util.InputMismatchException;
@@ -8,9 +8,8 @@ public class MenstrualApp {
 
     public static void main(String[] args) {
         welcome();
-        firstDisplay();
+        menu();
         startApplication();
-
     }
 
 
@@ -18,11 +17,9 @@ public class MenstrualApp {
     private static void welcome() {
         display("""
                 WELCOME TO EAGLE MENSTRUAL TRACKER
-                """);
+                """);}
 
-    }
-
-    private static void firstDisplay() {
+    private static void menu() {
         String userInput =  input("""
                 +++++++++++++++++++++++++++++++++++
                 1. Enter Menstrual details
@@ -52,7 +49,6 @@ public class MenstrualApp {
         catch (InputMismatchException error){
             display("Invalid Input");
         }
-
     }
 
     private static void validateInput(int numberOfFlowDays, int cycleLength) {
@@ -62,12 +58,11 @@ public class MenstrualApp {
             display("DISCLAIMER: All calculations provided by our ovulation calculator are no more than just estimations. " +
                     "We make no claim of any perfect calculations. " +
                     "For a better prediction, you may visit your doctor on a regular basis.");
-
     }
 
     private static void startApplication() {
         String userInput = input("""
-                                     +++++++++++++++++++++++++++++++++++   
+                                     +++++++++++++++++++++++++++++++++++
                                         1. Know Next Period Date.
                                         2. know Ovulation Period.
                                         3. know Fertility Period.
@@ -81,14 +76,17 @@ public class MenstrualApp {
             case "3" -> fertilityPeriod();
             case "4" -> safePeriod();
             case "5" -> exitApplication();
-            default -> System.exit(1);
+            default -> {
+                display("Enter valid input");
+                startApplication();
+            }
         }
     }
 
     private static void nextPeriod() {
 
         try{
-            String design = "!".repeat(50);
+            String design = "!".repeat(30);
             display(String.format("""
                             %s
                             Next Period date is:  %s
@@ -175,10 +173,6 @@ public class MenstrualApp {
         System.exit(1);
     }
 
-//    private static void invalidInput() {
-//        display("Invalid Input");
-//        startApplication();
-//    }
 
     private static String display(String message) {
         JOptionPane.showMessageDialog(null, message);

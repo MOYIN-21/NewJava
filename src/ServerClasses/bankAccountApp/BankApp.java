@@ -14,7 +14,7 @@ import static java.lang.System.exit;
 public class BankApp {
     private static String FirstName;
     private static String pin;
-    private static final Bank wemaBank = new Bank();
+    private static final Bank EagleBank = new Bank();
     public static void main(String[] args) throws wrongPinException {
         String thrownException = "";
         while (thrownException == ""){
@@ -32,9 +32,11 @@ public class BankApp {
     public static void bankAppMenu() throws wrongPinException {
         String bankAppMenu = """
                 ===================================
-                Welcome to Wema Bank
+                Welcome to EagleBank
                 1 -> Create Account
+                
                 2 -> login
+                
                 3 -> Exit
                 ===================================
                 """;
@@ -43,7 +45,10 @@ public class BankApp {
             case '1' -> createAccount();
             case '2' -> login();
             case '3' -> exitApplication();
-            default -> exit(0);
+            default -> {
+                display("invalid input");
+                bankAppMenu();
+            }
         }
     }
 
@@ -59,8 +64,7 @@ public class BankApp {
         else {
                 display("WELCOME TO WEMA BANK");
             menu();
-
-    }
+        }
 }
 
     private static void createAccount() throws wrongPinException {
@@ -82,7 +86,7 @@ public class BankApp {
             display("enter pin");
             createAccount();
         }
-        wemaBank.register(firstName, lastName, pin);
+        EagleBank.register(firstName, lastName, pin);
         display("Account created successfully");
         menu(); }
 
@@ -90,11 +94,15 @@ public class BankApp {
     public static void menu() throws wrongPinException{
     String menu = """
                 ===================================
-                Welcome to Wema Bank
+                Welcome to EagleBank
                 1 -> Deposit
+                
                 2 -> Withdraw
+                
                 3 -> Transfer
+                
                 4 -> Check Balance
+                
                 5 -> Exit
                 ===================================
                 """;
@@ -105,7 +113,10 @@ public class BankApp {
             case '3' -> transfer();
             case '4' -> checkBalance();
             case '5' -> exitApplication();
-            default -> exit(0);
+            default -> {
+                display("invalid input");
+                menu();
+            }
         }
     }
 
@@ -119,21 +130,22 @@ public class BankApp {
         try{
         String accountNumber = input("Enter Your Account Number");
         String pin = input("Enter Your Pin");
-        String accountBalance = String.format("""
-       Your account Balance is %s""",
-                wemaBank.checkBalance(String.valueOf(accountNumber),pin).toPlainString());}
+        String balance = String.valueOf(EagleBank.checkBalance(String.valueOf(accountNumber),pin));
+            JOptionPane.showMessageDialog(null, "Your account Balance is " + balance);
+        }
         catch (IllegalArgumentException | wrongPinException error){
         display(error.getMessage());}
         menu();}
 
-
     private static void transfer() throws wrongPinException {
         try{
-            String senderAccountNumber = input("Enter your Account Number");
-            String receiverAccountNumber = input("Enter recipient Account Number");
-            BigDecimal amount = BigDecimal.valueOf(Long.parseLong(input("Enter Amount")));
             String senderPin = input("Enter your Pin");
-            wemaBank.transfer(String.valueOf(senderAccountNumber),senderPin, String.valueOf(receiverAccountNumber),amount);
+            String senderAccountNumber = input("Enter sender account Number");
+            String receiverAccountNumber = input("Enter receiver Account Number");
+            BigDecimal amount = BigDecimal.valueOf(Long.parseLong(input("Enter Amount")));
+            EagleBank.transfer(String.valueOf(senderAccountNumber),senderPin, String.valueOf(receiverAccountNumber),amount);
+            String balance = String.valueOf(EagleBank.checkBalance(String.valueOf(senderAccountNumber), senderPin));
+            JOptionPane.showMessageDialog(null,"You have succesfully tranfered" + amount + "to" + receiverAccountNumber + " " + "and your account balance is" + balance);
             }
         catch (IllegalArgumentException | invalidCredentialsException | wrongPinException |
                negativeAmountCanNotBeDeposited | InsufficientFundException error){
@@ -146,7 +158,7 @@ public class BankApp {
         String accountNumber = input("Enter your account number");
         BigDecimal amount = BigDecimal.valueOf(Long.parseLong(input("Enter your amount")));
         String pin = input("Enter your Pin");
-        wemaBank.withdraw(amount,pin, String.valueOf(accountNumber));
+        EagleBank.withdraw(amount,pin, String.valueOf(accountNumber));
         }
         catch (IllegalArgumentException | wrongPinException | InsufficientFundException ex){
             display(ex.getMessage());
@@ -157,7 +169,7 @@ public class BankApp {
         try{
         String accountNumber = input("Enter Your Account Number");
         BigDecimal amount = BigDecimal.valueOf(Long.parseLong(input("Enter Your Amount")));
-        wemaBank.deposit(amount, accountNumber);
+        EagleBank.deposit(amount, accountNumber);
         } catch (invalidCredentialsException | negativeAmountCanNotBeDeposited e) {
             display(e.getMessage());
         }

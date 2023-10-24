@@ -1,4 +1,4 @@
-package dietel.c2.MenstrualApp;
+package ServerClasses.MenstrualApp;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
