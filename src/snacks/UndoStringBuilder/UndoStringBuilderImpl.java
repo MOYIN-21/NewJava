@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class UndoStringBuilderImpl implements UndoStringBuilderInter {
     private StringBuilder stringBuilder;
-    private ArrayList<StringBuilder> operation;
+    private final ArrayList<StringBuilder> operation;
     public UndoStringBuilderImpl() {
         this.stringBuilder = new StringBuilder();
         this.operation = new ArrayList<>();
@@ -44,7 +44,7 @@ public class UndoStringBuilderImpl implements UndoStringBuilderInter {
         }
 
         return stringBuilder;
-        }
+    }
 
 
     @Override
@@ -74,8 +74,6 @@ public class UndoStringBuilderImpl implements UndoStringBuilderInter {
             stringBuilder = new StringBuilder(previousState);
         }
         return stringBuilder;
-
-
     }
 
     public String toString(){return stringBuilder.toString();}

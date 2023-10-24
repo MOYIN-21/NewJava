@@ -1,8 +1,8 @@
 package snacks;
 
-public class StringBuild {
+public class StringBuilder {
     public static void main(String[] args) {
-        StringBuilder usb = new StringBuilder("Moyin");
+        java.lang.StringBuilder usb = new java.lang.StringBuilder("Moyin");
 
         usb.append("tola");
         System.out.println(usb);
