@@ -1,7 +1,7 @@
 package FirstAndLastIndex;
 
 import org.junit.jupiter.api.Test;
-import ServerClasses.ReturnFirstAndLastAndAllLetters;
+import serverClasses.ReturnFirstAndLastAndAllLetters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

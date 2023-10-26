@@ -1,7 +1,7 @@
 package SwapArrayTest;
 
 import org.junit.jupiter.api.Test;
-import ServerClasses.SwapArray;
+import serverClasses.SwapArray;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

@@ -5,7 +5,7 @@ import exceptions.negativeAmountCanNotBeDeposited;
 import exceptions.wrongPinException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ServerClasses.bankAccountApp.Bank;
+import serverClasses.bankAccountApp.Bank;
 
 import java.math.BigDecimal;
 

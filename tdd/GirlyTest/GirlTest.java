@@ -1,10 +1,10 @@
 package GirlyTest;
 
 import org.junit.jupiter.api.Test;
-import ServerClasses.girlChoice.Girl;
-import ServerClasses.girlChoice.Laflare;
-import ServerClasses.girlChoice.Tomide;
-import ServerClasses.girlChoice.Victor;
+import serverClasses.girlChoice.Girl;
+import serverClasses.girlChoice.Laflare;
+import serverClasses.girlChoice.Tomide;
+import serverClasses.girlChoice.Victor;
 
 public class GirlTest {
     @Test

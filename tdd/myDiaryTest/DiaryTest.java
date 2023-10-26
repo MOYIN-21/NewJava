@@ -3,8 +3,8 @@ package myDiaryTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ServerClasses.myDiary.Diary;
-import ServerClasses.myDiary.Entry;
+import serverClasses.myDiary.Diary;
+import serverClasses.myDiary.Entry;
 
 public class DiaryTest {
 

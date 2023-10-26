@@ -1,7 +1,7 @@
 package KissDryTest;
 
 import org.junit.jupiter.api.Test;
-import ServerClasses.ArrangeIndexKissDry;
+import serverClasses.ArrangeIndexKissDry;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

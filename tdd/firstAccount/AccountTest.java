@@ -1,7 +1,7 @@
 package firstAccount;
 
 import org.junit.Test;
-import ServerClasses.firstAccount.Account;
+import serverClasses.firstAccount.Account;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

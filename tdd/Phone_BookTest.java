@@ -1,4 +1,4 @@
-import ServerClasses.Phone_Book;
+import serverClasses.Phone_BookApp.Phone_Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

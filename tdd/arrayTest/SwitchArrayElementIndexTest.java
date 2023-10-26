@@ -1,7 +1,7 @@
 package arrayTest;
 
 import org.junit.Test;
-import ServerClasses.firstArray.SwitchArrayElementIndex;
+import serverClasses.firstArray.SwitchArrayElementIndex;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

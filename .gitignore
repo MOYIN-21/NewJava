@@ -1,7 +1,7 @@
 ### IntelliJ IDEA ###
 out/
-!src/ServerClasses/main/**/out/
-!src/ServerClasses/test/**/out/
+!src/serverClasses/main/**/out/
+!src/serverClasses/test/**/out/
 
 ### Eclipse ###
 .apt_generated
@@ -12,8 +12,8 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!src/ServerClasses/main/**/bin/
-!src/ServerClasses/test/**/bin/
+!src/serverClasses/main/**/bin/
+!src/serverClasses/test/**/bin/
 
 ### NetBeans ###
 /nbproject/private/

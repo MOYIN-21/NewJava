@@ -3,7 +3,7 @@ package bankAccountTestApp;
 import exceptions.negativeAmountCanNotBeDeposited;
 import exceptions.wrongPinException;
 import org.junit.jupiter.api.Test;
-import ServerClasses.bankAccountApp.Account2;
+import serverClasses.bankAccountApp.Account2;
 
 import java.math.BigDecimal;
 
