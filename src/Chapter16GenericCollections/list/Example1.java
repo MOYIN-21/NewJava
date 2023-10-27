@@ -1,9 +1,7 @@
-package Chapter16.list;
+package Chapter16GenericCollections.list;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Queue;
 
 public class Example1 {
     public static void main(String[] args) {

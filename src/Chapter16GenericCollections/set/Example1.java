@@ -1,4 +1,4 @@
-package Chapter16.set;
+package Chapter16GenericCollections.set;
 
 import java.util.HashSet;
 import java.util.Set;

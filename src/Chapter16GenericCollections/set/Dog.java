@@ -1,5 +1,4 @@
-package Chapter16.set;
-
+package Chapter16GenericCollections.set;
 import org.jetbrains.annotations.NotNull;
 
 public class Dog implements Comparable{

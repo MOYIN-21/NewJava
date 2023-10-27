@@ -14,7 +14,7 @@ public class Queue {
         System.out.println(supermarket.size());
         System.out.println(supermarket.peek());
     }
-    static record Person(String name, int age){
+    public static record Person(String name, int age){
 
     }
 }
